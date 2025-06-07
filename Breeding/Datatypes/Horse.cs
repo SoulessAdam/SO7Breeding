@@ -1,5 +1,3 @@
-using System.Reflection.Metadata;
-
 namespace Breeding.Datatypes;
 
 public struct Horse
