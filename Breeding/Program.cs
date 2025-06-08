@@ -5,13 +5,14 @@ using Breeding.Parsers;
 string myDocumentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 if (!Directory.Exists(Path.Join(myDocumentPath, "SO7Breeding")))
 {
+    Directory.CreateDirectory(Path.Join(myDocumentPath, "SO7Breeding"));
     Console.WriteLine($"Initialising Directory {myDocumentPath}/SO7Breeding");
-    FileStream filterStream = File.Create(String.Join(Path.Join(myDocumentPath, "SO7Breeding"), "Filter.json"));
+    FileStream filterStream = File.Create(Path.Join(myDocumentPath, "SO7Breeding","Filter.json"));
     filterStream.Write(UTF8Encoding.UTF8.GetBytes("{\n  \"Pot\" : null,\n  \"Finish\" : null,\n  \"Extra\" : null,\n  \"Mat\" : null,\n  \"Score\" : null\n}"));
     filterStream.Close();
     
-    FileStream mareStream = File.Create(String.Join(Path.Join(myDocumentPath, "SO7Breeding"), "Mares.csv"));
-    FileStream stallionStream = File.Create(String.Join(Path.Join(myDocumentPath, "SO7Breeding"), "Stallions.csv"));
+    FileStream mareStream = File.Create(Path.Join(myDocumentPath, "SO7Breeding", "Mares.csv"));
+    FileStream stallionStream = File.Create(Path.Join(myDocumentPath, "SO7Breeding", "Stallions.csv"));
     mareStream.Write(UTF8Encoding.UTF8.GetBytes("Name,Pot,Finish,Extra,Mat"));
     stallionStream.Write(UTF8Encoding.UTF8.GetBytes("Name,Pot,Finish,Extra,Mat"));
     mareStream.Close();
