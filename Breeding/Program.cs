@@ -3,12 +3,13 @@ using Breeding.Datatypes;
 using Breeding.Parsers;
 
 string myDocumentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+FilterParser fParse = new FilterParser();
 if (!Directory.Exists(Path.Join(myDocumentPath, "SO7Breeding")))
 {
     Directory.CreateDirectory(Path.Join(myDocumentPath, "SO7Breeding"));
     Console.WriteLine($"Initialising Directory {myDocumentPath}/SO7Breeding");
     FileStream filterStream = File.Create(Path.Join(myDocumentPath, "SO7Breeding","Filter.json"));
-    filterStream.Write(UTF8Encoding.UTF8.GetBytes("{\n  \"Pot\" : null,\n  \"Finish\" : null,\n  \"Extra\" : null,\n  \"Mat\" : null,\n  \"Score\" : null\n}"));
+    fParse.createExampleFilter(ref filterStream);
     filterStream.Close();
     
     FileStream mareStream = File.Create(Path.Join(myDocumentPath, "SO7Breeding", "Mares.csv"));
@@ -23,7 +24,6 @@ if (!Directory.Exists(Path.Join(myDocumentPath, "SO7Breeding")))
 }
 
 CsvParser cParse = new CsvParser();
-FilterParser fParse = new FilterParser();
 Filter filter = fParse.parseFilter();
 List<Horse> Stallions = new List<Horse>(cParse.ReadHorses(Path.Join(myDocumentPath, "SO7Breeding", "Stallions.csv")));
 List<Horse> Mares = new List<Horse>(cParse.ReadHorses(Path.Join(myDocumentPath, "SO7Breeding", "Mares.csv")));
