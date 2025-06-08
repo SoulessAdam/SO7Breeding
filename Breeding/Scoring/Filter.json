@@ -1,5 +1,7 @@
 {
+  "Pot" : 50,
   "Finish" : 50,
+  "Extra" : 75,
   "Mat" : 30,
-  "Pot" : 50
+  "Score" : null
 }
