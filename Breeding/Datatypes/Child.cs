@@ -12,7 +12,7 @@ public class Child
     {
         float mean = (sireStat + damStat) / 2f;
         float max = Math.Max(sireStat, damStat);
-        float bonusRange = 5f + (100 - max) * 0.1f;
+        float bonusRange = (100 - max) * 0.1f;
 
         // Small chance for mutation spike (rare elite horses)
         float mutation = mutationBonusChance(0.01f) ? new Random().Next(0, 5) : 0f;
@@ -45,10 +45,10 @@ public class Child
     
     private float calculateScore() {
         return (
-            Pot * 0.2f +
-            Finish * 0.4f +   
-            Extra * 0.3f + 
-            Mat * 0.1f 
+            Pot * 0.25f +
+            Finish * 0.2f +   
+            Extra * 0.5f + 
+            Mat * 0.05f 
         );
     }
 
