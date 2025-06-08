@@ -51,4 +51,9 @@ public class Child
             Mat * 0.1f 
         );
     }
+
+    public override string ToString()
+    {
+        return $"{Pairing} : {Score} : Pot {Pot} | Finish {Finish} | Extra {Extra} | Mat {Mat}";
+    }
 }
