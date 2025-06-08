@@ -45,10 +45,10 @@ public class Child
     
     private float calculateScore() {
         return (
-            Pot * 0.25f +
-            Finish * 0.2f +   
+            Pot * 0.3f +
+            Finish * 0.175f +   
             Extra * 0.5f + 
-            Mat * 0.05f 
+            Mat * 0.025f 
         );
     }
 
