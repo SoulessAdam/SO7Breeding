@@ -23,13 +23,14 @@ public struct Filter
     [JsonPropertyName("Score")]
     public float? minScore { private set; get; }
 
-    public Filter(float? Pot, int? Fin, float? Extra, float? mat, float? score)
+    [JsonConstructor]
+    public Filter(float? Pot, int? Finish, float? Extra, float? Mat, float? Score)
     {
         minPot = Pot;
-        minFin = Fin;
+        minFin = Finish;
         minExt = Extra;
-        minMat = mat;
-        minScore = score;
+        minMat = Mat;
+        minScore = Score;
     }
 
     public float? getPot()
